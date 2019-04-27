@@ -20,15 +20,15 @@ Wet_T           Degrees Celsius	  Wet Air Temperature from a Sling Psychrometer
 ##### [Bottle field](https://new.data.calcofi.org/index.php/database/calcofi-database/bottle-field-descriptions) description
 
 ```text
-Depthm        meters           Depth in meters
-T_degC        Degrees C        Temperature of Water
-Salnty        Practical        Salinity of water
-				      Salinity Scale, 
-				      1978 (UNESCO, 
-				      1981a)
-O2ml_L        Oxygen in mL/L  Milliliters of dissolved oxygen per Liter seawater
-STheta        n.a.            Potential Density of Water
-02Sat         Percent         Oxygen Saturation
-				      Saturation
-Oxy_umol/kg   µmol/Kg         Oxygen in micro moles per kilogram of seawater
+Depthm        meters           	Depth in meters
+T_degC        Degrees C       	Temperature of Water
+Salnty        Practical        	Salinity of water
+				Salinity Scale, 
+				1978 (UNESCO, 
+				1981a)
+O2ml_L        Oxygen in mL/L  	Milliliters of dissolved oxygen per Liter seawater
+STheta        n.a.            	Potential Density of Water
+02Sat         Percent         	Oxygen Saturation
+				Saturation
+Oxy_umol/kg   µmol/Kg         	Oxygen in micro moles per kilogram of seawater
 ```
