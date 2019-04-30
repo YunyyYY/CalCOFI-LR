@@ -13,8 +13,38 @@ load("bottle.RData")
 a = data.frame(prop$Depth_ID)
 c = substr(a[,], 1, 5)
 c = sub("-", "", c)
+m = substr(a[,], 4, 7)
+
+# check some years
+years = as.character(seq(1989, 1999, 1))
+sub = prop[which(c %in% years), ]
+month = substr(sub$Depth_ID[], 4, 7)
+t = sub$T_degC
+depth = sub$Depthm
+years = data.frame(t, depth, month)
+years = years[complete.cases(years), ]
+save(years, file="y89-99.RData")
+
+x = tapply(years$t,years$month,mean)
+
+fit = auto.arima(x[1:32])
+autoplot(fit)
+pred = forecast(fit, h=20)
+autoplot(pred)
+plot(x)
+
+# year 2000
+new = prop[which(c %in% c("2000")), ]
+mm = substr(new$Depth_ID[], 4, 7)
+tt = new$T_degC
+xx = tapply(tt,mm,mean)
 
 # y2011-y2015 are indices
+y2006 = which(c %in% "2006")
+y2007 = which(c %in% "2007")
+y2008 = which(c %in% "2008")
+y2009 = which(c %in% "2009")
+y2010 = which(c %in% "2010")
 y2011 = which(c %in% "2011")
 y2012 = which(c %in% "2012")
 y2013 = which(c %in% "2013")
@@ -22,9 +52,18 @@ y2014 = which(c %in% "2014")
 y2015 = which(c %in% "2015")
 y2016 = which(c %in% "2016")
 
-# extract and store data from year 2011-2015
-five = prop[c(y2011, y2012, y2013, y2014, y2015), ]
-save(five, file="five_y.RData")
+# store ten year water temperature data
+ten = prop[c(y2006, y2007, y2008, y2009, y2010, y2011, y2012, y2013, y2014, y2015), ]
+hh = ten$Depth_ID
+month = substr(hh[], 4, 7)
+depth = ten$Depthm
+t = ten$T_degC
+ten = data.frame(month, depth, t)
+ten = ten[complete.cases(ten), ]
+ten$month = as.character(ten$month)
+ten = ten[!strcmp(ten$month, "1009"), ]
+ten$month = as.factor(ten$month)
+save(ten, file="ten.RData")
 
 # extract and store data of year 2016
 y2016 = prop[y2016, ]
