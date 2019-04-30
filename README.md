@@ -34,6 +34,5 @@ Oxy_umol/kg   µmol/Kg         	Oxygen in micro moles per kilogram of seawater
 ```
 
 #### ggplot documentation
-[ggplot color table](http://sape.inf.usi.ch/quick-reference/ggplot2/colour) 
-
+[ggplot color table](http://sape.inf.usi.ch/quick-reference/ggplot2/colour) </br>
 [ggplot2 package](https://www.rdocumentation.org/packages/ggplot2/versions/3.1.1)
